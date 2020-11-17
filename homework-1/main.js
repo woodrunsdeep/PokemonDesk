@@ -28,3 +28,37 @@ function getRow(firstRow, secondRow) {
 }
 
 getRow(firstRow, secondRow);
+
+const phoneNumber = prompt('Введите номер телефона в следующем формате +71234567890');
+
+function formatString (str) {
+	let result = '';
+  if (str.length >= 10 && str.length <= 12) {
+		for (let i = (str.length - 10); i < str.length; i++) {
+		result += str[i];
+		}
+  } else {
+    alert('Формат номера неверный');
+    return;
+  }
+	return result;
+}
+
+function formatPhoneNumber (phoneNumber) {
+  const countryCode = '+7 ';
+  let formattedNumber = '';
+  phoneNumber = formatString(phoneNumber);
+  if (phoneNumber) {
+    const regionCode = phoneNumber.slice(0, 3);
+    const firstSection = phoneNumber.slice(3, 6);
+    const secondSection = phoneNumber.slice(6, 8);
+    const thirdSection = phoneNumber.slice(8, 10);
+    formattedNumber = countryCode + '(' + regionCode + ') ' + firstSection + '-' + secondSection + '-' + thirdSection;
+    alert(formattedNumber);
+    return;
+  } else {
+    return;
+  }
+}
+
+formatPhoneNumber(phoneNumber);
