@@ -17,7 +17,7 @@ function getRow(firstRow, secondRow) {
   const charsInSecondRow = countChar(secondRow, char);
   let result;
   if (charsInFirstRow === charsInSecondRow) {
-    result = 'Количество букв ' + char + ' в строках одинаковое - ' + charsInFirstRow;
+    result =  `Количество букв ${char} в строках одинаковое - ${charsInFirstRow}`;
   } else if (charsInFirstRow > charsInSecondRow) {
     result = firstRow;
   } else {
@@ -45,7 +45,7 @@ function formatString (str) {
 }
 
 function formatPhoneNumber (phoneNumber) {
-  const countryCode = '+7 ';
+  const countryCode = '+7';
   let formattedNumber = '';
   phoneNumber = formatString(phoneNumber);
   if (phoneNumber) {
@@ -53,7 +53,7 @@ function formatPhoneNumber (phoneNumber) {
     const firstSection = phoneNumber.slice(3, 6);
     const secondSection = phoneNumber.slice(6, 8);
     const thirdSection = phoneNumber.slice(8, 10);
-    formattedNumber = countryCode + '(' + regionCode + ') ' + firstSection + '-' + secondSection + '-' + thirdSection;
+    formattedNumber = `${countryCode} (${regionCode}) ${firstSection}-${secondSection}-${thirdSection}`;
     alert(formattedNumber);
     return;
   } else {
